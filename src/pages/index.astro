@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/home/Hero.jsx";
+import FeaturedProjects from "../components/home/FeaturedProjects.astro";
+import SkillsPreview from "../components/home/SkillsPreview.astro";
+import SectionTitle from "../components/ui/SectionTitle.astro";
+import ButtonLink from "../components/ui/ButtonLink.astro";
+---
+
+<BaseLayout title="Thein Htoo Aung | Portfolio">
+  <Hero client:load />
+  <FeaturedProjects />
+  <SkillsPreview />
+
+  <section class="pb-16 pt-6 sm:pb-24">
+    <div class="surface-card p-8 sm:p-10">
+      <SectionTitle
+        description="Available for Odoo module work, ERP workflow design, localization, reporting, automation tooling, and business software implementation."
+        eyebrow="Contact"
+        title="Need a builder for practical operational systems?"
+      />
+
+      <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+        <ButtonLink href="/contact" label="Open Contact Page" />
+        <ButtonLink href="/projects" label="Browse Project Cases" variant="secondary" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,46 @@
+---
+import Footer from "../components/layout/Footer.astro";
+import Navbar from "../components/layout/Navbar.astro";
+import CustomCursor from "../components/ui/CustomCursor.jsx";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Thein Htoo Aung portfolio focused on Odoo, backend systems, automation, and practical business software.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content={description} name="description" />
+    <title>{title}</title>
+    <script is:inline>
+      try {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "light") {
+          document.documentElement.classList.remove("dark");
+        } else {
+          document.documentElement.classList.add("dark");
+        }
+      } catch {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
+  </head>
+  <body>
+    <Navbar />
+    <CustomCursor client:load />
+    <main class="mx-auto min-h-[70vh] max-w-7xl px-4 sm:px-6 lg:px-8">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

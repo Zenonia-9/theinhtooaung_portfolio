@@ -1,0 +1,72 @@
+---
+title: "THA Consignment Sale System"
+slug: "tha-consignment-sale"
+published: true
+featured: true
+status: "Completed"
+category: "Odoo ERP"
+year: 2026
+cover: "/projects/tha-consignment-sale/cover.jpg"
+demoGif: "/projects/tha-consignment-sale/demo.gif"
+stack:
+  - Odoo 19
+  - Python
+  - PostgreSQL
+  - Inventory
+  - Accounting
+  - QWeb Reports
+summary: "A complete Odoo 19 consignment workflow for orders, transfers, backorders, settlements, invoices, commission bills, returns, and reports."
+screenshots:
+  - src: "/projects/tha-consignment-sale/screenshots/01-shop-setup.jpg"
+    title: "Consignment Shop Setup"
+    description: "Partner configuration for consignment location, pricelist, and commission."
+  - src: "/projects/tha-consignment-sale/screenshots/02-order-form.jpg"
+    title: "Consignment Order Form"
+    description: "Order lines, totals, commission amount, and transfer state."
+  - src: "/projects/tha-consignment-sale/screenshots/03-backorder-flow.jpg"
+    title: "Partial Transfer and Backorder"
+    description: "Backorder transfer linked back to the original consignment order."
+  - src: "/projects/tha-consignment-sale/screenshots/04-settlement.jpg"
+    title: "Settlement Workflow"
+    description: "Sold quantity settlement with invoice and commission handling."
+  - src: "/projects/tha-consignment-sale/screenshots/05-report.jpg"
+    title: "Consignment Report"
+    description: "Printable A4/A5 QWeb report."
+---
+
+## Problem
+
+Odoo standard workflows do not provide a complete consignment sales process for shop-based stock movement, partial transfers, backorders, settlements, commission billing, and returns.
+
+## Solution
+
+I built a custom Odoo 19 module that connects Inventory, Accounting, Contacts, Products, and Reports into one complete consignment workflow.
+
+## Key Features
+
+- Consignment shop setup
+- Consignment order workflow
+- Automatic stock transfer creation
+- Partial transfer and backorder tracking
+- Dedicated consignment transfers menu
+- Settlement workflow
+- Customer invoice generation
+- Commission vendor bill generation
+- Return workflow for unsold goods
+- A4/A5 QWeb PDF reports
+
+## Technical Highlights
+
+- Custom Odoo models
+- Stock picking integration
+- Backorder propagation
+- Computed transfer status
+- Invoice and vendor bill creation
+- QWeb reporting
+- Multi-company access rules
+
+## Future Improvements
+
+- Add automated test cases
+- Add separate Consignment User and Consignment Manager groups
+- Improve dashboard reporting

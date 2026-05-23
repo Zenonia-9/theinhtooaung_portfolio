@@ -1,0 +1,35 @@
+---
+import Badge from "../ui/Badge.astro";
+
+interface Props {
+  project: {
+    status: "Completed" | "In Progress" | "Improving" | "Draft";
+    category: string;
+    year: number;
+    stack: string[];
+  };
+}
+
+const { project } = Astro.props;
+---
+
+<div class="flex flex-col gap-4">
+  <div class="flex flex-wrap items-center gap-3">
+    <Badge
+      label={project.status}
+      tone={project.status === "Completed" ? "primary" : "secondary"}
+    />
+    <Badge label={project.category} tone="neutral" />
+    <span class="rounded-full border border-border px-3 py-1 text-sm text-muted">
+      {project.year}
+    </span>
+  </div>
+
+  <div class="flex flex-wrap gap-2">
+    {project.stack.map((item) => (
+      <span class="rounded-xl border border-border bg-card/70 px-3 py-2 text-xs font-medium text-muted">
+        {item}
+      </span>
+    ))}
+  </div>
+</div>

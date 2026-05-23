@@ -1,0 +1,88 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionTitle from "../components/ui/SectionTitle.astro";
+
+const contactCards = [
+  {
+    title: "Email",
+    value: "theinhtooaung906@gmail.com",
+    href: "mailto:theinhtooaung906@gmail.com",
+    icon: "EM",
+  },
+  {
+    title: "GitHub",
+    value: "github.com/theinhtooaung",
+    href: "https://github.com/theinhtooaung",
+    icon: "GH",
+  },
+  {
+    title: "LinkedIn",
+    value: "linkedin.com/in/theinhtooaung",
+    href: "https://www.linkedin.com/in/theinhtooaung/",
+    icon: "IN",
+  },
+  {
+    title: "Telegram",
+    value: "@theinhtooaung",
+    href: "https://t.me/theinhtooaung",
+    icon: "TG",
+  },
+  {
+    title: "Location / Timezone",
+    value: "Yangon, MMT (UTC+6:30)",
+    href: null,
+    icon: "MM",
+  },
+  {
+    title: "Download CV",
+    value: "Thein-Htoo-Aung-CV.pdf",
+    href: "/Thein-Htoo-Aung-CV.pdf",
+    icon: "CV",
+  },
+];
+---
+
+<BaseLayout title="Contact | Thein Htoo Aung">
+  <section class="py-10 sm:py-14">
+    <SectionTitle
+      description="Reach out for Odoo module work, backend-heavy business software, localization, reports, or workflow automation."
+      eyebrow="Contact"
+      title="Project discussion and availability"
+    />
+
+    <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      {contactCards.map((card) => {
+        const cardContent = (
+          <>
+            <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/30 bg-primary-soft font-mono text-sm font-semibold tracking-[0.2em] text-primary">
+              {card.icon}
+            </div>
+            <div class="mt-10">
+              <p class="font-mono text-xs uppercase tracking-[0.24em] text-muted">
+                {card.title}
+              </p>
+              <p class="mt-3 text-lg font-semibold tracking-[-0.02em] text-text">
+                {card.value}
+              </p>
+            </div>
+          </>
+        );
+
+        return card.href ? (
+          <a
+            class="surface-card group flex min-h-52 flex-col justify-between p-6 hover:border-secondary/40"
+            href={card.href}
+            rel={card.href.startsWith("http") ? "noreferrer" : undefined}
+            target={card.href.startsWith("http") ? "_blank" : undefined}
+          >
+            {cardContent}
+          </a>
+        ) : (
+          <div class="surface-card flex min-h-52 flex-col justify-between p-6">
+            {cardContent}
+          </div>
+        );
+      })}
+    </div>
+  </section>
+</BaseLayout>

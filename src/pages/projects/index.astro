@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+import ProjectFilter from "../../components/projects/ProjectFilter.jsx";
+import SectionTitle from "../../components/ui/SectionTitle.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const projects = (await getCollection("projects", ({ data }) => data.published))
+  .filter((project) => project.data.title !== "Lady Astra Bot")
+  .sort((a, b) => b.data.year - a.data.year)
+  .map((project) => ({ ...project.data, slug: project.slug }));
+---
+
+<BaseLayout title="Projects | Thein Htoo Aung">
+  <section class="py-10 sm:py-14">
+    <SectionTitle
+      description="Airtable-like card presentation for browsing, then detailed case-study pages with screenshots, demo motion, and implementation notes."
+      eyebrow="Project Archive"
+      title="Published work and case studies"
+    />
+
+    <div class="mt-10">
+      <ProjectFilter client:load projects={projects} />
+    </div>
+  </section>
+</BaseLayout>

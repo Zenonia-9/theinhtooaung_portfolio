@@ -1,0 +1,41 @@
+---
+import SectionTitle from "../ui/SectionTitle.astro";
+
+const groups = [
+  {
+    title: "ERP Workflow Design",
+    description: "Sales, inventory, accounting, returns, reports, and cross-model Odoo flows.",
+    tone: "bg-primary-soft/70",
+  },
+  {
+    title: "Backend and Data",
+    description: "Python, PostgreSQL, migrations, automation helpers, and operational data shaping.",
+    tone: "bg-card",
+  },
+  {
+    title: "Business-Facing UI",
+    description: "Clean dashboards, structured case studies, practical controls, and print-ready outputs.",
+    tone: "bg-secondary-soft/70",
+  },
+];
+---
+
+<section class="py-14 sm:py-20">
+  <SectionTitle
+    description="The structure follows Notion-like clarity for technical metadata and Airtable-like presentation for screenshots, sections, and business-software storytelling."
+    eyebrow="Capabilities"
+    title="What I build"
+  />
+
+  <div class="mt-10 grid gap-5 lg:grid-cols-3">
+    {groups.map((group) => (
+      <article class:list={["surface-card p-6", group.tone]}>
+        <p class="font-mono text-xs uppercase tracking-[0.24em] text-primary">Core area</p>
+        <h3 class="mt-4 font-display text-2xl font-bold tracking-[-0.04em] text-text">
+          {group.title}
+        </h3>
+        <p class="mt-4 text-sm leading-7 text-muted">{group.description}</p>
+      </article>
+    ))}
+  </div>
+</section>

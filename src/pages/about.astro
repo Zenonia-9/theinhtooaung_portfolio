@@ -1,0 +1,105 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionTitle from "../components/ui/SectionTitle.astro";
+
+const skillGroups = [
+  {
+    title: "Odoo Development",
+    items: ["Custom modules", "Workflows", "Reports", "Security and access flows"],
+  },
+  {
+    title: "Backend / Database",
+    items: ["Python", "PostgreSQL", "Data modeling", "Migration-safe extensions"],
+  },
+  {
+    title: "DevOps",
+    items: ["Docker workflows", "Deployment checks", "Environment-aware validation"],
+  },
+  {
+    title: "Automation",
+    items: ["Task automation", "Operational tooling", "Batch processes", "Internal helpers"],
+  },
+  {
+    title: "Creative / Design",
+    items: ["Product presentation", "Structured UX", "Case study layout", "Visual systems"],
+  },
+];
+---
+
+<BaseLayout
+  description="About Thein Htoo Aung: Odoo developer, backend builder, and creative technologist."
+  title="About | Thein Htoo Aung"
+>
+  <section class="py-10 sm:py-14">
+    <SectionTitle
+      description="I am an Odoo Developer and Creative Technologist focused on ERP workflows, Python backend development, automation tools, and practical business systems."
+      eyebrow="About"
+      title="Building business software that stays usable"
+    />
+
+    <div class="mt-10 grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+      <div class="surface-card overflow-hidden p-3">
+        <img
+          alt="Thein Htoo Aung portrait on the about page"
+          class="aspect-[4/4.4] w-full rounded-[1.4rem] object-cover"
+          src="/images/profile/htoo-about.jpg"
+        />
+      </div>
+
+      <div class="space-y-6">
+        <article class="surface-card p-6">
+          <p class="font-mono text-xs uppercase tracking-[0.24em] text-primary">Who I am</p>
+          <p class="mt-4 text-base leading-8 text-muted">
+            I work where backend logic, ERP process design, and real operational needs meet.
+            Most of my projects are driven by business users who need the software to stay
+            understandable while the workflow gets more capable.
+          </p>
+        </article>
+
+        <article class="surface-card p-6">
+          <p class="font-mono text-xs uppercase tracking-[0.24em] text-primary">What I build</p>
+          <p class="mt-4 text-base leading-8 text-muted">
+            I design modules and supporting tools for inventory, accounting, localization,
+            automation, and reporting. The goal is usually the same: reduce manual handling,
+            keep state transitions explicit, and make the UI readable for the people doing the
+            work.
+          </p>
+        </article>
+
+        <article class="surface-card p-6">
+          <p class="font-mono text-xs uppercase tracking-[0.24em] text-primary">Current focus</p>
+          <p class="mt-4 text-base leading-8 text-muted">
+            Odoo 19 custom workflows, Myanmar localization tooling, report systems, and
+            backend-heavy business software that still needs a clear presentation layer.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-16 sm:pb-24">
+    <SectionTitle
+      description="A practical split between implementation skills and the presentation work needed to make software understandable."
+      eyebrow="Skill Sets"
+      title="Technical and creative capabilities"
+    />
+
+    <div class="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+      {skillGroups.map((group) => (
+        <article class="surface-card p-6">
+          <h3 class="font-display text-2xl font-bold tracking-[-0.03em] text-text">
+            {group.title}
+          </h3>
+          <ul class="mt-4 space-y-3">
+            {group.items.map((item) => (
+              <li class="flex items-center gap-3 text-sm text-muted">
+                <span class="h-2 w-2 rounded-full bg-primary" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import ProjectCard from "../projects/ProjectCard.jsx";
+import SectionTitle from "../ui/SectionTitle.astro";
+
+const featuredProjects = (await getCollection("projects", ({ data }) => data.published))
+  .filter((project) => project.data.featured && project.data.status === "Completed")
+  .sort((a, b) => b.data.year - a.data.year);
+---
+
+<section class="py-14 sm:py-20">
+  <SectionTitle
+    description="Structured like a clean project database, then expanded into readable case studies with business-flow screenshots and technical context."
+    eyebrow="Featured Work"
+    title="Selected ERP and localization projects"
+  />
+
+  <div class="mt-10 grid gap-6 lg:grid-cols-2">
+    {featuredProjects.map((project) => (
+      <ProjectCard project={{ ...project.data, slug: project.slug }} />
+    ))}
+  </div>
+</section>

@@ -1,0 +1,56 @@
+---
+const socialLinks = [
+  { href: "https://github.com/theinhtooaung", label: "GitHub" },
+  { href: "https://www.linkedin.com/in/theinhtooaung/", label: "LinkedIn" },
+  { href: "https://t.me/theinhtooaung", label: "Telegram" },
+];
+---
+
+<footer class="border-t border-border/70 bg-bg-elevated/92">
+  <div class="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1.4fr_1fr] lg:px-8">
+    <div>
+      <div class="mb-5 h-1 w-20 rounded-full bg-secondary"></div>
+      <h2 class="font-display text-2xl font-bold tracking-[-0.04em] text-text">
+        Thein Htoo Aung
+      </h2>
+      <p class="mt-3 max-w-xl text-base leading-8 text-muted">
+        Odoo developer, Python backend builder, and creative technologist focused on
+        reliable business software with clear operational flows.
+      </p>
+    </div>
+
+    <div class="grid gap-5 sm:grid-cols-2">
+      <div>
+        <p class="font-mono text-xs uppercase tracking-[0.26em] text-primary">Site</p>
+        <div class="mt-4 flex flex-col gap-3">
+          <a class="text-sm text-muted hover:text-primary" href="/">Home</a>
+          <a class="text-sm text-muted hover:text-primary" href="/projects">Projects</a>
+          <a class="text-sm text-muted hover:text-primary" href="/about">About</a>
+          <a class="text-sm text-muted hover:text-primary" href="/contact">Contact</a>
+        </div>
+      </div>
+      <div>
+        <p class="font-mono text-xs uppercase tracking-[0.26em] text-primary">Elsewhere</p>
+        <div class="mt-4 flex flex-col gap-3">
+          {socialLinks.map((link) => (
+            <a
+              class="text-sm text-muted hover:text-primary"
+              href={link.href}
+              rel="noreferrer"
+              target="_blank"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-border/70">
+    <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-4 text-sm text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+      <p>&copy; 2026 Thein Htoo Aung. Built with Astro, React, Tailwind, and MDX.</p>
+      <p>Dark-first by default. Yangon timezone aware.</p>
+    </div>
+  </div>
+</footer>

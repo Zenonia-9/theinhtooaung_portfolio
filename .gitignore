@@ -1,0 +1,37 @@
+# build output
+dist/
+
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# environment variables
+.env
+.env.*
+.env.local
+.env.production
+!.env.example
+
+# local Codex/editor state
+.codex/
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
+
+# deployment and package-manager caches
+.vercel/
+.netlify/
+.npm/
+.pnpm-store/

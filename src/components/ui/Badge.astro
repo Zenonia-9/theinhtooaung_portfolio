@@ -1,0 +1,19 @@
+---
+interface Props {
+  label: string;
+  tone?: "primary" | "secondary" | "neutral";
+}
+
+const { label, tone = "neutral" } = Astro.props;
+
+const toneClass = {
+  primary:
+    "border-primary/35 bg-primary-soft text-primary dark:border-primary/35 dark:bg-primary-soft dark:text-primary",
+  secondary:
+    "border-secondary/35 bg-secondary-soft text-secondary dark:border-secondary/35 dark:bg-secondary-soft dark:text-secondary",
+  neutral:
+    "border-border bg-card/90 text-muted dark:border-border dark:bg-card/90 dark:text-muted",
+}[tone];
+---
+
+<span class:list={["status-pill", toneClass]}>{label}</span>
