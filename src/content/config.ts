@@ -12,6 +12,7 @@ const projects = defineCollection({
     year: z.number(),
     cover: z.string(),
     demoGif: z.string().optional(),
+    sourceUrl: z.string().url().optional(),
     stack: z.array(z.string()),
     summary: z.string(),
     screenshots: z

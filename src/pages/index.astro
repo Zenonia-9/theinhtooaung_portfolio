@@ -1,29 +1,121 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/home/Hero.jsx";
-import FeaturedProjects from "../components/home/FeaturedProjects.astro";
-import SkillsPreview from "../components/home/SkillsPreview.astro";
-import SectionTitle from "../components/ui/SectionTitle.astro";
-import ButtonLink from "../components/ui/ButtonLink.astro";
+import TypingTitle from "../components/home/TypingTitle.jsx";
+import BrandIcon from "../components/ui/BrandIcon.astro";
+import { Image } from "astro:assets";
+import { Mail } from "lucide-react";
+
+import avatarLight from "../assets/images/profile/avatar-light.png";
+import avatarDark from "../assets/images/profile/avatar-dark.png";
 ---
 
 <BaseLayout title="Thein Htoo Aung | Portfolio">
-  <Hero client:load />
-  <FeaturedProjects />
-  <SkillsPreview />
+  <section class="section-shell grid min-h-[calc(100vh-80px)] items-center gap-12 pt-16 lg:grid-cols-[1.05fr_0.95fr]">
+    <div class="fade-up">
+      <p class="font-mono text-sm uppercase tracking-[0.28em] text-secondary">Hi, I'm</p>
 
-  <section class="pb-16 pt-6 sm:pb-24">
-    <div class="surface-card p-8 sm:p-10">
-      <SectionTitle
-        description="Available for Odoo module work, ERP workflow design, localization, reporting, automation tooling, and business software implementation."
-        eyebrow="Contact"
-        title="Need a builder for practical operational systems?"
-      />
+      <h1 class="mt-4 font-display text-5xl font-bold leading-[0.95] tracking-[-0.04em] text-text sm:text-7xl lg:text-8xl">
+        Thein Htoo <span class="neon-text block">Aung</span>
+      </h1>
 
-      <div class="mt-8 flex flex-col gap-4 sm:flex-row">
-        <ButtonLink href="/contact" label="Open Contact Page" />
-        <ButtonLink href="/projects" label="Browse Project Cases" variant="secondary" />
+      <div class="mt-7">
+        <TypingTitle client:load />
+      </div>
+
+      <p class="mt-7 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
+        I build Odoo modules, Python backend systems, business workflow automation, and modern interfaces. Details I do not have yet are marked as placeholders.
+      </p>
+
+      <div class="mt-9 flex flex-col gap-4 sm:flex-row">
+        <a
+          class="cursor-hover inline-flex items-center justify-center gap-2 rounded-[24px] border border-primary bg-primary px-7 py-4 text-sm font-bold text-black shadow-glow hover:-translate-y-1 hover:bg-primary-hover"
+          href="/projects"
+        >
+          View Projects
+          <span aria-hidden="true">-&gt;</span>
+        </a>
+
+        <a
+          class="cursor-hover inline-flex items-center justify-center gap-2 rounded-[24px] border border-border bg-card/80 px-7 py-4 text-sm font-bold text-text hover:border-secondary/50 hover:text-secondary"
+          href="/contact"
+        >
+          Contact Me
+          <Mail className="h-4 w-4" aria-hidden="true" />
+        </a>
+      </div>
+
+      <div class="mt-8 flex gap-3">
+        <a
+          class="cursor-hover inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-border bg-card/75 font-mono text-sm font-bold text-muted hover:border-primary/50 hover:text-primary"
+          href="https://github.com/Zenonia-9"
+          rel="noreferrer"
+          target="_blank"
+          aria-label="GitHub"
+        >
+          <BrandIcon name="github" />
+        </a>
+
+        <a
+          class="cursor-hover inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-border bg-card/75 font-mono text-sm font-bold text-muted hover:border-primary/50 hover:text-primary"
+          href="https://www.linkedin.com/in/theinhtooaung/"
+          rel="noreferrer"
+          target="_blank"
+          aria-label="LinkedIn"
+        >
+          <BrandIcon name="linkedin" />
+        </a>
+
+        <a
+          class="cursor-hover inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-border bg-card/75 font-mono text-sm font-bold text-muted hover:border-primary/50 hover:text-primary"
+          href="https://t.me/NoctivagusAeternus"
+          rel="noreferrer"
+          target="_blank"
+          aria-label="Telegram"
+        >
+          <BrandIcon name="telegram" />
+        </a>
+      </div>
+    </div>
+
+    <div class="relative fade-up lg:justify-self-end">
+      <div class="absolute inset-6 rounded-full bg-primary/30 blur-[90px]"></div>
+
+      <div class="neon-panel relative mx-auto max-w-[520px] rounded-[24px] border border-primary/30 bg-card/70 p-4 backdrop-blur">
+        <Image
+          src={avatarLight}
+          alt="Thein Htoo Aung portrait"
+          class="theme-photo theme-photo-light aspect-[4/5] w-full rounded-[20px] object-cover shadow-[0_40px_120px_rgba(0,0,0,0.25)] motion-safe:animate-[float_6s_ease-in-out_infinite]"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+          widths={[320, 480, 640, 800, 1040]}
+          sizes="(min-width: 1024px) 520px, 90vw"
+        />
+
+        <Image
+          src={avatarDark}
+          alt="Thein Htoo Aung portrait"
+          class="theme-photo theme-photo-dark aspect-[4/5] w-full rounded-[20px] object-cover shadow-[0_40px_120px_rgba(0,0,0,0.45)] motion-safe:animate-[float_6s_ease-in-out_infinite]"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+          widths={[320, 480, 640, 800, 1040]}
+          sizes="(min-width: 1024px) 520px, 90vw"
+        />
       </div>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-14px);
+    }
+  }
+</style>

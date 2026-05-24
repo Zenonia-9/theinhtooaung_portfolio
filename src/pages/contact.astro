@@ -1,43 +1,44 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionTitle from "../components/ui/SectionTitle.astro";
+import BrandIcon from "../components/ui/BrandIcon.astro";
 
 const contactCards = [
   {
     title: "Email",
     value: "theinhtooaung906@gmail.com",
     href: "mailto:theinhtooaung906@gmail.com",
-    icon: "EM",
+    icon: "mail",
   },
   {
     title: "GitHub",
-    value: "github.com/theinhtooaung",
-    href: "https://github.com/theinhtooaung",
-    icon: "GH",
+    value: "github.com/Zenonia-9",
+    href: "https://github.com/Zenonia-9",
+    icon: "github",
   },
   {
     title: "LinkedIn",
     value: "linkedin.com/in/theinhtooaung",
     href: "https://www.linkedin.com/in/theinhtooaung/",
-    icon: "IN",
+    icon: "linkedin",
   },
   {
     title: "Telegram",
-    value: "@theinhtooaung",
-    href: "https://t.me/theinhtooaung",
-    icon: "TG",
+    value: "@NoctivagusAeternus",
+    href: "https://t.me/NoctivagusAeternus",
+    icon: "telegram",
   },
   {
     title: "Location / Timezone",
     value: "Yangon, MMT (UTC+6:30)",
     href: null,
-    icon: "MM",
+    icon: "globe",
   },
   {
     title: "Download CV",
     value: "Thein-Htoo-Aung-CV.pdf",
     href: "/Thein-Htoo-Aung-CV.pdf",
-    icon: "CV",
+    icon: "file-text",
   },
 ];
 ---
@@ -55,7 +56,11 @@ const contactCards = [
         const cardContent = (
           <>
             <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/30 bg-primary-soft font-mono text-sm font-semibold tracking-[0.2em] text-primary">
-              {card.icon}
+              {["github", "linkedin", "telegram", "mail", "globe", "file-text"].includes(card.icon) ? (
+                <BrandIcon name={card.icon} />
+              ) : (
+                card.icon
+              )}
             </div>
             <div class="mt-10">
               <p class="font-mono text-xs uppercase tracking-[0.24em] text-muted">

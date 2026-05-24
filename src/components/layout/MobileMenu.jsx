@@ -49,7 +49,10 @@ export default function MobileMenu({ links, pathname }) {
 
             <nav className="flex flex-col gap-2">
               {links.map((link) => {
-                const active = normalizedPath === link.href;
+                const active =
+                  link.href === "/"
+                    ? normalizedPath === "/"
+                    : normalizedPath.startsWith(link.href);
                 return (
                   <a
                     className={`rounded-2xl border px-4 py-3 text-base font-medium ${

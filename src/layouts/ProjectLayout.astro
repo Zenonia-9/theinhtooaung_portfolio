@@ -18,6 +18,7 @@ interface ProjectData {
   year: number;
   cover: string;
   demoGif?: string;
+  sourceUrl?: string;
   stack: string[];
   screenshots?: Screenshot[];
 }
@@ -64,7 +65,7 @@ const { project } = Astro.props as { project: ProjectData };
           </div>
           <img
             alt={`${project.title} demo animation`}
-            class="w-full rounded-[1.5rem] border border-primary/20 object-cover"
+            class="max-h-[72vh] w-full rounded-[1.5rem] border border-primary/20 bg-bg/80 object-contain"
             src={project.demoGif}
           />
         </div>

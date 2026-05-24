@@ -35,3 +35,6 @@ pnpm-debug.log*
 .netlify/
 .npm/
 .pnpm-store/
+
+*.zip
+.images/

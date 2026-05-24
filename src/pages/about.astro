@@ -1,6 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionTitle from "../components/ui/SectionTitle.astro";
+import { Image } from "astro:assets";
+
+import avatarLight from "../assets/images/profile/avatar-light.png";
+import avatarDark from "../assets/images/profile/avatar-dark.png";
 
 const skillGroups = [
   {
@@ -39,10 +43,26 @@ const skillGroups = [
 
     <div class="mt-10 grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
       <div class="surface-card overflow-hidden p-3">
-        <img
-          alt="Thein Htoo Aung portrait on the about page"
-          class="aspect-[4/4.4] w-full rounded-[1.4rem] object-cover"
-          src="/images/profile/htoo-about.jpg"
+        <Image
+          src={avatarLight}
+          alt="Thein Htoo Aung portrait"
+          class="theme-photo theme-photo-light aspect-[4/5] w-full rounded-[20px] object-cover shadow-[0_40px_120px_rgba(0,0,0,0.25)] motion-safe:animate-[float_6s_ease-in-out_infinite]"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+          widths={[320, 480, 640, 800, 1040]}
+          sizes="(min-width: 1024px) 420px, 90vw"
+        />
+
+        <Image
+          src={avatarDark}
+          alt="Thein Htoo Aung portrait"
+          class="theme-photo theme-photo-dark aspect-[4/5] w-full rounded-[20px] object-cover shadow-[0_40px_120px_rgba(0,0,0,0.45)] motion-safe:animate-[float_6s_ease-in-out_infinite]"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+          widths={[320, 480, 640, 800, 1040]}
+          sizes="(min-width: 1024px) 420px, 90vw"
         />
       </div>
 
@@ -90,6 +110,7 @@ const skillGroups = [
           <h3 class="font-display text-2xl font-bold tracking-[-0.03em] text-text">
             {group.title}
           </h3>
+
           <ul class="mt-4 space-y-3">
             {group.items.map((item) => (
               <li class="flex items-center gap-3 text-sm text-muted">
@@ -103,3 +124,16 @@ const skillGroups = [
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-14px);
+    }
+  }
+</style>
