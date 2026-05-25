@@ -11,6 +11,7 @@ const projects = defineCollection({
     category: z.string(),
     year: z.number(),
     cover: z.string(),
+    coverPosition: z.string().optional(),
     demoGif: z.string().optional(),
     sourceUrl: z.string().url().optional(),
     stack: z.array(z.string()),

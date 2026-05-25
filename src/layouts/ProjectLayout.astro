@@ -2,7 +2,7 @@
 import BaseLayout from "./BaseLayout.astro";
 import ButtonLink from "../components/ui/ButtonLink.astro";
 import ProjectMeta from "../components/projects/ProjectMeta.astro";
-import ScreenshotGallery from "../components/projects/ScreenshotGallery.jsx";
+import ScreenshotGallery, { GifViewer } from "../components/projects/ScreenshotGallery.jsx";
 
 interface Screenshot {
   src: string;
@@ -17,6 +17,7 @@ interface ProjectData {
   category: string;
   year: number;
   cover: string;
+  coverPosition?: string;
   demoGif?: string;
   sourceUrl?: string;
   stack: string[];
@@ -24,55 +25,68 @@ interface ProjectData {
 }
 
 const { project } = Astro.props as { project: ProjectData };
+const coverPosition = project.coverPosition || "center";
 ---
 
 <BaseLayout description={project.summary} title={`${project.title} | Thein Htoo Aung`}>
-  <article class="pb-16 pt-10 sm:pb-24 sm:pt-14">
-    <div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-      <div>
-        <a class="inline-flex items-center gap-2 text-sm text-muted hover:text-primary" href="/projects">
-          Back to Projects
-        </a>
-        <h1 class="mt-5 font-display text-4xl font-bold tracking-[-0.05em] text-text sm:text-5xl lg:text-6xl">
+  <article class="pb-16 pt-6 sm:pb-24 sm:pt-10">
+    <a class="inline-flex items-center gap-2 text-sm text-muted hover:text-primary" href="/projects">
+      <span aria-hidden="true">&lt;-</span>
+      Back to Projects
+    </a>
+
+    <section class="mt-6 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+      <div class="lg:pt-7">
+        <h1 class="font-display text-4xl font-bold tracking-[-0.05em] text-text sm:text-5xl lg:text-6xl">
           {project.title}
         </h1>
-        <p class="mt-6 max-w-2xl text-lg leading-8 text-muted">{project.summary}</p>
-        <div class="mt-8">
+        <p class="mt-6 max-w-3xl text-base leading-8 text-muted sm:text-lg">{project.summary}</p>
+        <div class="mt-8 sm:mt-10">
           <ProjectMeta project={project} />
         </div>
       </div>
 
-      <div class="surface-card overflow-hidden p-3">
+      <div class="relative overflow-hidden rounded-[24px] border border-primary/25 bg-card p-3 shadow-soft">
         <img
           alt={`${project.title} cover image`}
-          class="h-full max-h-[30rem] w-full rounded-[1.4rem] object-cover"
+          class="h-[260px] w-full rounded-[1.25rem] object-cover sm:h-[340px] lg:h-[480px]"
           src={project.cover}
+          style={`object-position: ${coverPosition};`}
         />
+        <div class="pointer-events-none absolute inset-x-3 bottom-3 h-1/3 rounded-b-[1.25rem] bg-gradient-to-t from-black/40 via-black/10 to-transparent"></div>
       </div>
-    </div>
+    </section>
 
     {project.demoGif && (
-      <section class="py-12 sm:py-16">
-        <div class="surface-card overflow-hidden border-primary/25 p-4 shadow-[0_0_0_1px_rgba(34,197,94,0.16),0_30px_90px_rgba(34,197,94,0.1)]">
-          <div class="mb-5 flex items-center justify-between gap-4">
-            <div>
-              <p class="font-mono text-xs uppercase tracking-[0.24em] text-primary">Demo Flow</p>
-              <h2 class="mt-2 font-display text-2xl font-bold tracking-[-0.04em] text-text">
-                Working motion snapshot
-              </h2>
-            </div>
+      <section class="py-10 sm:py-14">
+        <div class="space-y-8 sm:space-y-10">
+          <div>
+            <p class="font-mono text-xs uppercase tracking-[0.24em] text-primary">Demo Flow</p>
+            <h2 class="mt-3 font-display text-3xl font-bold tracking-[-0.04em] text-text">
+              Working motion snapshot
+            </h2>
+          </div>
+
+          <GifViewer
+            client:load
+            description="Tap fullscreen for a larger landscape-friendly view of the workflow."
+            src={project.demoGif}
+            title={`${project.title} demo animation`}
+          />
+
+          <p class="max-w-3xl text-base leading-8 text-muted">
+            This motion preview shows the project flow at a glance. Use fullscreen on mobile,
+            then rotate the device for a wider inspection view.
+          </p>
+
+          <div>
             <ButtonLink href="/contact" label="Discuss Similar Work" variant="secondary" />
           </div>
-          <img
-            alt={`${project.title} demo animation`}
-            class="max-h-[72vh] w-full rounded-[1.5rem] border border-primary/20 bg-bg/80 object-contain"
-            src={project.demoGif}
-          />
         </div>
       </section>
     )}
 
-    <section class="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+    <section class="grid gap-10 py-6 sm:gap-12 sm:py-8 lg:grid-cols-[0.85fr_1.15fr]">
       <aside class="surface-card h-fit p-6">
         <p class="font-mono text-xs uppercase tracking-[0.24em] text-primary">Project Database</p>
         <div class="database-grid mt-5">
@@ -91,13 +105,13 @@ const { project } = Astro.props as { project: ProjectData };
         </div>
       </aside>
 
-      <div class="project-prose surface-card p-6 sm:p-8">
+      <div class="project-prose surface-card p-6 sm:p-8 lg:p-10">
         <slot />
       </div>
     </section>
 
     {project.screenshots?.length ? (
-      <section class="py-12 sm:py-16">
+      <section class="py-10 sm:py-16">
         <div class="mb-8">
           <p class="font-mono text-xs uppercase tracking-[0.24em] text-primary">
             Screenshot Grid
