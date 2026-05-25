@@ -1,21 +1,41 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Maximize2, Pause, Play, RotateCcw, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
+
+function useScrollLock(active) {
+  useEffect(() => {
+    if (!active) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [active]);
+}
 
 function MediaModal({ items, activeIndex, onClose, onIndexChange }) {
   const touchStartX = useRef(null);
   const activeItem = items[activeIndex];
+  const hasMultipleItems = items.length > 1;
+
+  useScrollLock(true);
 
   useEffect(() => {
     const onKeyDown = (event) => {
       if (event.key === "Escape") onClose();
-      if (event.key === "ArrowLeft") onIndexChange(Math.max(0, activeIndex - 1));
-      if (event.key === "ArrowRight") onIndexChange(Math.min(items.length - 1, activeIndex + 1));
+      if (event.key === "ArrowLeft" && hasMultipleItems) {
+        onIndexChange(Math.max(0, activeIndex - 1));
+      }
+      if (event.key === "ArrowRight" && hasMultipleItems) {
+        onIndexChange(Math.min(items.length - 1, activeIndex + 1));
+      }
     };
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [activeIndex, items.length, onClose, onIndexChange]);
+  }, [activeIndex, hasMultipleItems, items.length, onClose, onIndexChange]);
 
   const goPrevious = () => onIndexChange(Math.max(0, activeIndex - 1));
   const goNext = () => onIndexChange(Math.min(items.length - 1, activeIndex + 1));
@@ -23,19 +43,29 @@ function MediaModal({ items, activeIndex, onClose, onIndexChange }) {
   return (
     <motion.div
       animate={{ opacity: 1 }}
-      className="fixed inset-0 z-[120] flex items-center justify-center bg-black/92 p-3 sm:p-5"
+      className="fixed inset-0 z-[9999] flex h-[100dvh] w-screen flex-col bg-black/[0.94] px-3 py-3 sm:px-5 sm:py-4"
       exit={{ opacity: 0 }}
       initial={{ opacity: 0 }}
       onClick={onClose}
     >
+      <div className="flex shrink-0 justify-end">
+        <button
+          aria-label="Close media viewer"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white backdrop-blur hover:border-secondary/45 hover:text-secondary"
+          onClick={onClose}
+          type="button"
+        >
+          <X className="h-5 w-5" />
+        </button>
+      </div>
+
       <motion.div
         animate={{ opacity: 1, scale: 1 }}
-        className="relative flex h-[90vh] w-[95vw] max-w-[1400px] flex-col justify-center"
+        className="flex min-h-0 flex-1 flex-col"
         exit={{ opacity: 0, scale: 0.98 }}
         initial={{ opacity: 0, scale: 0.98 }}
-        onClick={(event) => event.stopPropagation()}
         onTouchEnd={(event) => {
-          if (touchStartX.current === null) return;
+          if (!hasMultipleItems || touchStartX.current === null) return;
           const delta = touchStartX.current - event.changedTouches[0].clientX;
           if (delta > 50) goNext();
           if (delta < -50) goPrevious();
@@ -46,126 +76,59 @@ function MediaModal({ items, activeIndex, onClose, onIndexChange }) {
         }}
         transition={{ duration: 0.2, ease: "easeOut" }}
       >
-        <button
-          aria-label="Close media viewer"
-          className="absolute right-0 top-0 z-10 inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white backdrop-blur hover:border-secondary/45 hover:text-secondary"
-          onClick={onClose}
-          type="button"
-        >
-          <X className="h-5 w-5" />
-        </button>
-
-        {items.length > 1 ? (
-          <>
-            <button
-              aria-label="Previous screenshot"
-              className="absolute left-0 top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white backdrop-blur hover:border-secondary/45 hover:text-secondary sm:inline-flex"
-              disabled={activeIndex === 0}
-              onClick={goPrevious}
-              type="button"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-            <button
-              aria-label="Next screenshot"
-              className="absolute right-0 top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white backdrop-blur hover:border-secondary/45 hover:text-secondary sm:inline-flex"
-              disabled={activeIndex === items.length - 1}
-              onClick={goNext}
-              type="button"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
-          </>
-        ) : null}
-
-        <div className="flex min-h-0 flex-1 items-center justify-center pt-14">
-          <img
-            alt={activeItem.title}
-            className="max-h-[78vh] w-auto max-w-full rounded-[1.25rem] object-contain [@media(orientation:landscape)]:max-h-[86vh] [@media(orientation:landscape)]:max-w-[100vw]"
-            src={activeItem.src}
-          />
+        <div className="flex min-h-0 flex-1 items-center justify-center">
+          <div onClick={(event) => event.stopPropagation()}>
+            <img
+              alt={activeItem.title}
+              className="max-h-[70dvh] max-w-[96vw] rounded-[1rem] object-contain [@media(orientation:landscape)]:max-h-[86dvh]"
+              src={activeItem.src}
+            />
+          </div>
         </div>
 
-        <div className="mx-auto mt-4 max-w-4xl text-center">
-          <h3 className="font-display text-xl font-bold tracking-[-0.03em] text-white sm:text-2xl">
-            {activeItem.title}
-          </h3>
-          {activeItem.description ? (
-            <p className="mt-2 text-sm leading-7 text-white/70">{activeItem.description}</p>
+        <div
+          className="mx-auto mt-3 flex w-full max-w-5xl shrink-0 flex-col gap-3 text-center text-white sm:mt-4"
+          onClick={(event) => event.stopPropagation()}
+        >
+          {hasMultipleItems ? (
+            <div className="flex items-center justify-center gap-3">
+              <button
+                aria-label="Previous screenshot"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white backdrop-blur disabled:cursor-not-allowed disabled:opacity-40 hover:border-secondary/45 hover:text-secondary"
+                disabled={activeIndex === 0}
+                onClick={goPrevious}
+                type="button"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              <span className="font-mono text-xs text-white/70">
+                {activeIndex + 1} / {items.length}
+              </span>
+              <button
+                aria-label="Next screenshot"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white backdrop-blur disabled:cursor-not-allowed disabled:opacity-40 hover:border-secondary/45 hover:text-secondary"
+                disabled={activeIndex === items.length - 1}
+                onClick={goNext}
+                type="button"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            </div>
           ) : null}
+
+          <div>
+            <h3 className="font-display text-lg font-bold tracking-[-0.02em] text-white sm:text-xl">
+              {activeItem.title}
+            </h3>
+            {activeItem.description ? (
+              <p className="mx-auto mt-1 max-w-3xl text-sm leading-6 text-white/70">
+                {activeItem.description}
+              </p>
+            ) : null}
+          </div>
         </div>
       </motion.div>
     </motion.div>
-  );
-}
-
-export function GifViewer({ src, title, description }) {
-  const [open, setOpen] = useState(false);
-  const [playing, setPlaying] = useState(true);
-  const [reloadKey, setReloadKey] = useState(0);
-  const item = useMemo(() => [{ src, title, description }], [description, src, title]);
-
-  if (!src) return null;
-
-  return (
-    <>
-      <div className="surface-card overflow-hidden p-3 sm:p-4">
-        <div className="relative overflow-hidden rounded-[1.25rem] border border-primary/20 bg-bg/80">
-          {playing ? (
-            <img
-              alt={title}
-              className="max-h-[72vh] w-full object-contain"
-              key={reloadKey}
-              src={src}
-            />
-          ) : (
-            <div className="flex aspect-video min-h-48 items-center justify-center text-sm font-semibold text-muted">
-              Paused
-            </div>
-          )}
-        </div>
-        <div className="mt-4 flex flex-wrap gap-3">
-          <button
-            className="inline-flex cursor-hover items-center gap-2 rounded-full border border-border bg-bg/80 px-4 py-2 text-sm font-semibold text-text hover:border-primary/40 hover:text-primary"
-            onClick={() => setPlaying((value) => !value)}
-            type="button"
-          >
-            {playing ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
-            {playing ? "Pause" : "Play"}
-          </button>
-          <button
-            className="inline-flex cursor-hover items-center gap-2 rounded-full border border-border bg-bg/80 px-4 py-2 text-sm font-semibold text-text hover:border-primary/40 hover:text-primary"
-            onClick={() => {
-              setPlaying(true);
-              setReloadKey((value) => value + 1);
-            }}
-            type="button"
-          >
-            <RotateCcw className="h-4 w-4" />
-            Replay
-          </button>
-          <button
-            className="inline-flex cursor-hover items-center gap-2 rounded-full border border-primary/35 bg-primary-soft px-4 py-2 text-sm font-semibold text-primary hover:border-secondary/40 hover:text-secondary"
-            onClick={() => setOpen(true)}
-            type="button"
-          >
-            <Maximize2 className="h-4 w-4" />
-            Fullscreen
-          </button>
-        </div>
-      </div>
-
-      <AnimatePresence>
-        {open ? (
-          <MediaModal
-            activeIndex={0}
-            items={item}
-            onClose={() => setOpen(false)}
-            onIndexChange={() => {}}
-          />
-        ) : null}
-      </AnimatePresence>
-    </>
   );
 }
 
