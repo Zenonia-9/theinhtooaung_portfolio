@@ -3,8 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionTitle from "../components/ui/SectionTitle.astro";
 import { Image } from "astro:assets";
 
-import avatarLight from "../assets/images/profile/avatar-light.png";
-import avatarDark from "../assets/images/profile/avatar-dark.png";
+import avatarLight from "../assets/images/profile/profile.jpg";
+import avatarDark from "../assets/images/profile/profile.jpg";
 
 const skillGroups = [
   {
@@ -42,7 +42,7 @@ const skillGroups = [
     />
 
     <div class="mt-10 grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-      <div class="surface-card overflow-hidden p-3">
+      <div class="theme-photo-frame surface-card overflow-hidden p-3">
         <Image
           src={avatarLight}
           alt="Thein Htoo Aung portrait"
