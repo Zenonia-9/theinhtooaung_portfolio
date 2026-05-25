@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import TypingTitle from "../components/home/TypingTitle.jsx";
 import BrandIcon from "../components/ui/BrandIcon.astro";
 import { Image } from "astro:assets";
-import { Mail } from "lucide-react";
+import { FileDown } from "lucide-react";
 
 import avatarLight from "../assets/images/profile/profile.jpg";
 import avatarDark from "../assets/images/profile/profile.jpg";
@@ -24,7 +24,7 @@ import avatarDark from "../assets/images/profile/profile.jpg";
       </div>
 
       <p class="mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg lg:mt-7 lg:text-xl">
-        I build Odoo modules, Python backend systems, business workflow automation, and modern interfaces. Details I do not have yet are marked as placeholders.
+        I build Odoo modules, Python backend systems, ERP workflow automation, and practical business software. I focus on turning operational requirements into maintainable systems while documenting technical work and staying available for freelance collaboration.
       </p>
 
       <div class="mt-7 flex flex-col gap-4 sm:flex-row lg:mt-9">
@@ -38,12 +38,16 @@ import avatarDark from "../assets/images/profile/profile.jpg";
 
         <a
           class="cursor-hover inline-flex items-center justify-center gap-2 rounded-[24px] border border-border bg-card/80 px-7 py-4 text-sm font-bold text-text hover:border-secondary/50 hover:text-secondary"
-          href="/contact"
+          href="/Thein-Htoo-Aung-CV.pdf"
         >
-          Contact Me
-          <Mail className="h-4 w-4" aria-hidden="true" />
+          Download CV
+          <FileDown className="h-4 w-4" aria-hidden="true" />
         </a>
       </div>
+
+      <p class="mt-4 text-sm font-medium text-muted">
+        Open for freelance · Building public technical work
+      </p>
 
       <div class="mt-6 flex gap-3 lg:mt-8">
         <a
@@ -68,12 +72,12 @@ import avatarDark from "../assets/images/profile/profile.jpg";
 
         <a
           class="cursor-hover inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-border bg-card/75 font-mono text-sm font-bold text-muted hover:border-primary/50 hover:text-primary"
-          href="https://t.me/NoctivagusAeternus"
+          href="https://discord.com/users/1152421433528561734"
           rel="noreferrer"
           target="_blank"
-          aria-label="Telegram"
+          aria-label="Discord"
         >
-          <BrandIcon name="telegram" />
+          <BrandIcon name="discord" />
         </a>
       </div>
     </div>

@@ -9,34 +9,41 @@ import avatarDark from "../assets/images/profile/profile.jpg";
 const skillGroups = [
   {
     title: "Odoo Development",
-    items: ["Custom modules", "Workflows", "Reports", "Security and access flows"],
+    items: ["Custom modules", "Workflow modules", "QWeb PDF prints", "Security and access flows"],
   },
   {
     title: "Backend / Database",
-    items: ["Python", "PostgreSQL", "Data modeling", "Migration-safe extensions"],
+    items: ["Python", "PostgreSQL", "SQL", "Migration-safe extensions"],
   },
   {
-    title: "DevOps",
-    items: ["Docker workflows", "Deployment checks", "Environment-aware validation"],
+    title: "Reporting / Localization",
+    items: ["Accounting report customization", "Myanmar localization", "QWeb reports", "Business documents"],
   },
   {
-    title: "Automation",
-    items: ["Task automation", "Operational tooling", "Batch processes", "Internal helpers"],
+    title: "DevOps / Workflow",
+    items: ["Docker workflows", "Linux basics", "Git version control", "Development environment setup"],
   },
   {
-    title: "Creative / Design",
-    items: ["Product presentation", "Structured UX", "Case study layout", "Visual systems"],
+    title: "Product Direction",
+    items: ["ERP product thinking", "Open-source modules", "Technical presentation", "User-focused workflows"],
   },
+];
+
+const personalInfo = [
+  { label: "Location", value: "Yangon, Myanmar" },
+  { label: "Languages", value: "Myanmar, English" },
+  { label: "Education", value: "Self-taught Software Developer" },
+  { label: "Goal", value: "Senior Odoo Developer · ERP Products · Open Source Modules" },
 ];
 ---
 
 <BaseLayout
-  description="About Thein Htoo Aung: Odoo developer, backend builder, and creative technologist."
+  description="About Thein Htoo Aung: Odoo developer, backend builder, and self-taught software developer from Yangon, Myanmar."
   title="About | Thein Htoo Aung"
 >
   <section class="py-10 sm:py-14">
     <SectionTitle
-      description="I am an Odoo Developer and Creative Technologist focused on ERP workflows, Python backend development, automation tools, and practical business systems."
+      description="I am an Odoo Developer and Backend Engineer focused on ERP workflows, Python backend development, localization, reporting, and practical business systems."
       eyebrow="About"
       title="Building business software that stays usable"
     />
@@ -70,28 +77,38 @@ const skillGroups = [
         <article class="surface-card p-6">
           <p class="font-mono text-xs uppercase tracking-[0.24em] text-primary">Who I am</p>
           <p class="mt-4 text-base leading-8 text-muted">
-            I work where backend logic, ERP process design, and real operational needs meet.
-            Most of my projects are driven by business users who need the software to stay
-            understandable while the workflow gets more capable.
+            I build business software where backend engineering, ERP workflows, and practical operations meet. I prefer systems that remain understandable as complexity grows. My work focuses on making business processes explicit, reducing manual effort, and keeping interfaces usable.
           </p>
         </article>
 
         <article class="surface-card p-6">
           <p class="font-mono text-xs uppercase tracking-[0.24em] text-primary">What I build</p>
           <p class="mt-4 text-base leading-8 text-muted">
-            I design modules and supporting tools for inventory, accounting, localization,
-            automation, and reporting. The goal is usually the same: reduce manual handling,
-            keep state transitions explicit, and make the UI readable for the people doing the
-            work.
+            I develop custom Odoo workflows, backend modules, QWeb PDF prints, accounting report customizations, localization tooling, and operational automation. Most of my work involves translating business requirements into maintainable implementations with clean user-facing experiences.
           </p>
         </article>
 
         <article class="surface-card p-6">
           <p class="font-mono text-xs uppercase tracking-[0.24em] text-primary">Current focus</p>
           <p class="mt-4 text-base leading-8 text-muted">
-            Odoo 19 custom workflows, Myanmar localization tooling, report systems, and
-            backend-heavy business software that still needs a clear presentation layer.
+            Currently focused on Odoo 19 customization, ERP product development, Myanmar localization initiatives, open-source contributions, and growing toward senior-level backend and business system architecture.
           </p>
+        </article>
+
+        <article class="surface-card p-6">
+          <p class="font-mono text-xs uppercase tracking-[0.24em] text-primary">Personal details</p>
+          <div class="mt-5 grid gap-4 sm:grid-cols-2">
+            {personalInfo.map((item) => (
+              <div class="rounded-[18px] border border-border bg-bg/55 p-4">
+                <p class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-muted">
+                  {item.label}
+                </p>
+                <p class="mt-2 text-sm font-semibold leading-6 text-text">
+                  {item.value}
+                </p>
+              </div>
+            ))}
+          </div>
         </article>
       </div>
     </div>
@@ -99,7 +116,7 @@ const skillGroups = [
 
   <section class="pb-16 sm:pb-24">
     <SectionTitle
-      description="A practical split between implementation skills and the presentation work needed to make software understandable."
+      description="A practical split between implementation skills and the presentation work needed to make business software understandable."
       eyebrow="Skill Sets"
       title="Technical and creative capabilities"
     />

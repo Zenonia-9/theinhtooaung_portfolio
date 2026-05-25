@@ -29,8 +29,20 @@ const contactCards = [
     icon: "telegram",
   },
   {
+    title: "Discord",
+    value: "theinhtooaung",
+    href: "https://discord.com/users/1152421433528561734",
+    icon: "discord",
+  },
+  {
+    title: "Phone",
+    value: "+95 9794628265",
+    href: "tel:+959794628265",
+    icon: "phone",
+  },
+  {
     title: "Location / Timezone",
-    value: "Yangon, MMT (UTC+6:30)",
+    value: "Yangon, Myanmar · MMT (UTC+6:30)",
     href: null,
     icon: "globe",
   },
@@ -46,7 +58,7 @@ const contactCards = [
 <BaseLayout title="Contact | Thein Htoo Aung">
   <section class="py-10 sm:py-14">
     <SectionTitle
-      description="Reach out for Odoo module work, backend-heavy business software, localization, reports, or workflow automation."
+      description="Open for freelance collaboration, Odoo module work, backend-heavy business software, localization, reports, and workflow automation."
       eyebrow="Contact"
       title="Project discussion and availability"
     />
@@ -56,7 +68,7 @@ const contactCards = [
         const cardContent = (
           <>
             <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/30 bg-primary-soft font-mono text-sm font-semibold tracking-[0.2em] text-primary">
-              {["github", "linkedin", "telegram", "mail", "globe", "file-text"].includes(card.icon) ? (
+              {["discord", "github", "linkedin", "telegram", "phone", "mail", "globe", "file-text"].includes(card.icon) ? (
                 <BrandIcon name={card.icon} />
               ) : (
                 card.icon
@@ -66,7 +78,7 @@ const contactCards = [
               <p class="font-mono text-xs uppercase tracking-[0.24em] text-muted">
                 {card.title}
               </p>
-              <p class="mt-3 text-lg font-semibold tracking-[-0.02em] text-text">
+              <p class="mt-3 break-words text-lg font-semibold tracking-[-0.02em] text-text">
                 {card.value}
               </p>
             </div>

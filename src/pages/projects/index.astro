@@ -10,12 +10,15 @@ const projects = (await getCollection("projects", ({ data }) => data.published))
   .map((project) => ({ ...project.data, slug: project.slug }));
 ---
 
-<BaseLayout title="Projects | Thein Htoo Aung">
+<BaseLayout
+  title="Projects | Thein Htoo Aung"
+  description="Odoo, backend, localization, reporting, and workflow automation projects by Thein Htoo Aung."
+>
   <section class="py-10 sm:py-14">
     <SectionTitle
-      description="Airtable-like card presentation for browsing, then detailed case-study pages with screenshots, demo motion, and implementation notes."
-      eyebrow="Project Archive"
-      title="Published work and case studies"
+      eyebrow="Projects"
+      title="Odoo modules, backend systems, and ERP workflow case studies"
+      description="Selected technical work focused on Odoo customization, Myanmar localization, QWeb reports, accounting report customization, inventory workflows, and backend-heavy business automation."
     />
 
     <div class="mt-10">

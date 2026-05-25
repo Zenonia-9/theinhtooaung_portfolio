@@ -1,39 +1,74 @@
 %PDF-1.4
+%“Œ‹ž ReportLab Generated PDF document (opensource)
 1 0 obj
-<< /Type /Catalog /Pages 2 0 R >>
+<<
+/F1 2 0 R /F2 3 0 R
+>>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+<<
+/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
+>>
 endobj
 3 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
+<<
+/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+>>
 endobj
 4 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+<<
+/Contents 8 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 7 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
 endobj
 5 0 obj
-<< /Length 551 >>
+<<
+/PageMode /UseNone /Pages 7 0 R /Type /Catalog
+>>
+endobj
+6 0 obj
+<<
+/Author (\(anonymous\)) /CreationDate (D:20260525075114+00'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20260525075114+00'00') /Producer (ReportLab PDF Library - \(opensource\)) 
+  /Subject (\(unspecified\)) /Title (\(anonymous\)) /Trapped /False
+>>
+endobj
+7 0 obj
+<<
+/Count 1 /Kids [ 4 0 R ] /Type /Pages
+>>
+endobj
+8 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 1754
+>>
 stream
-BT /F1 24 Tf 72 760 Td (Thein Htoo Aung) Tj ET
-BT /F1 12 Tf 72 736 Td (Odoo Developer and Creative Technologist) Tj ET
-BT /F1 12 Tf 72 712 Td () Tj ET
-BT /F1 12 Tf 72 688 Td (Focus: Odoo 19 modules, Python backend development, PostgreSQL, automation, QWeb reports, and business workflows.) Tj ET
-BT /F1 12 Tf 72 664 Td (Email: theinhtooaung906@gmail.com) Tj ET
-BT /F1 12 Tf 72 640 Td (GitHub: github.com/theinhtooaung) Tj ET
-BT /F1 12 Tf 72 616 Td (LinkedIn: linkedin.com/in/theinhtooaung) Tj ET
-BT /F1 12 Tf 72 592 Td (Telegram: @theinhtooaung) Tj ET
-endstream
+Gatm<>?BQ=&:WeDbTkjG,K[FiD(1.d*a2I)4l&9!08ckWDJ^nhD(,;IG9k@g%1,dV+=@t.T4YgJ8>C_;_&"u$E=VJ]#%q!O."g1SW98CZ]7KM=kf4:C8=qrGn$t'(+a"Xl6<o;p%LMVX"G]AdV'BrXcgVaLjUoY2)`9$'2_(2q<A7c131aE:hg^7Dg$LA]s8D3<+#*QrZSu(XB70)EmRLREbURb[++B8?bk7SWVlau3NIB#!^J1MW95uU?\J>Od1,S#CO2$SsJT7qg$R+"CN4/0<!_1*78"g/RjE2>e1^XLDp:QL^&NDtj#HbTp`Q7SY*)URnO8qC=cfT1o,@b&VZKUd&#1YY\j?%6M:u>mD^V![kiWMG/nfm7&qd-/.jhQ6oC7OlP4-[Nm<OEHRZ)XV\Fg6lrnCLQrEFP@9#+*+4SZH?F%].T+qD7[c$6q33,8U'FeNZa/G=FY"=YKdV(4&/(bgHqF7f@:Uo!eM>jPNAI7@K(l'FW]6ddOINhkS2kD@/79CeC<PA6bHF!L*6!-LKu=RO)[QK^mk$*i/YHaQ,^6!Z>TPQMtO&li_PQbIXW/:5QAX'd>hk&Ta=E?>Z>(,&+/>T%>:VTX"],=#)^DTR8:@Od?R5Y!i@!WF2EQaES:)Lh2nB\Ps"N,sb0@LHUf9-'LBm9'63#dI>]'2?&I#8d05Uf'A<INo#5XW6N(Hm+E+hj4+>LNmI1N_hE2-i20,8F6Nc[J.WRT#X9Y.PbP)bO&!KMhnRSnKT!E0V`1<pd9E"e%=!eU)Ed'MB2OE9#dS167)VeI6d5*ZHQ^SbRE1NLY%;H6XouLh1]b#+R("DVXF>A@F*sN2<uJ_&dHK8%]04j*4@td_^FmbY<%_]YVTV:VL+1FO9ML*[&Dt9M[Cj'aj]_8CVcd3"2Gc&Bp\_l!^tX&QR)$0s2n=)1Ci;8YHgrsh^9dpL3Rt=$4/2_[)9dLd-dG,m.T5=8e*h":m<@OqO4&iq*YtR00^XR#(GP>tis$*Ri"U)L9#0Eq$Iu<qj*A6j:,F/4`8Km(]*c%=TO_?DIp$e["pKcDXW!;emkh?ufA1/iO=,2i\WPWQO7lq@W)$)m5?EG\inqRKJf@4,]S2f]OdTH<mU"faf*U5OZrq@CO/dbh#)[V!QF<W6Ll=bu*ii:Zhs;Ut_<8qR/t72uUJSWY%]<^^\mPpYYg=Np;.*du]]+!=M?*bo4cs<`<+>\A$R=Tm!#N7^L^G=`m&iA(#+/Ms3@<)1T8u>Z/:NCBd,`OM@\J$L.D3FFC<.iIc)&>i.O9)!(A5uS3ZC5I:q9+p?L?-l>I;MJ.jYciQm*;o4o;0fF"s3q&@)!tLbS:!Lfj9SIa=ps9%VSn&W8l,8FS,lD!k^c,s(*^n9Ba\@#kl%$7rX!L4d>JI"+4u7cmOcZ]Y%8bMkIHTces!G=PcS+#_(dhk$*ZLh4n+OmWA:4XM1W#I6j]/nWog*,_Y#p?iV)2cEhW\l1S)VkTc_BZi!o)&$m:pcSi\Q@R`=mrm4T[C=;RW!Si'd/MnUb+c+sNh5)9gA/FA+ELoY"usVGk.j%l,P:_7_,K?TJ-I9Pf`N3i7CG1XG`?q4D*-tF4#(%FCK[!cfh@*7V'P'),i]%9gTPN>Y+Anm:*@ArXYUZg?0XQ91l'!\Y^N%U>p^agmtH'MTV\DloP0D9-i"-O`N@:5r;M-AXb^PKSV8Iim!![QcUg()^!='3Xs9XgH!L_AE,f((>%+2=Brjt<W#iHpg5a%ts.dccG5~>endstream
 endobj
 xref
-0 6
+0 9
 0000000000 65535 f 
-0000000009 00000 n 
-0000000058 00000 n 
-0000000115 00000 n 
-0000000241 00000 n 
-0000000311 00000 n 
+0000000061 00000 n 
+0000000102 00000 n 
+0000000209 00000 n 
+0000000321 00000 n 
+0000000524 00000 n 
+0000000592 00000 n 
+0000000872 00000 n 
+0000000931 00000 n 
 trailer
-<< /Size 6 /Root 1 0 R >>
+<<
+/ID 
+[<f795df2a3e4812bd02d3d702d36f5fe9><f795df2a3e4812bd02d3d702d36f5fe9>]
+% ReportLab generated PDF document -- digest (opensource)
+
+/Info 6 0 R
+/Root 5 0 R
+/Size 9
+>>
 startxref
-913
+2776
 %%EOF

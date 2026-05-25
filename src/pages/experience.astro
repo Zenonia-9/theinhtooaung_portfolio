@@ -8,8 +8,14 @@ const experience = [
     role: "Junior Odoo Developer",
     company: "ARI Co., Ltd",
     description:
-      "Developing and customizing Odoo modules, improving business workflows, building reports, and supporting backend features with Python, PostgreSQL, and Docker-based development environments.",
-    stack: ["Odoo", "Python", "PostgreSQL", "Docker"],
+      "Develop custom Odoo modules and backend business workflows with emphasis on accounting, localization, reporting, and operational automation. Deliver QWeb PDF reports, accounting report customization, workflow extensions, and maintainable ERP solutions for production use.",
+    highlights: [
+      "Built Myanmar Address Localization module suite",
+      "Designed Consignment Sale workflow system",
+      "Customized accounting reports and QWeb PDF prints",
+      "Implemented backend-focused business workflow automation",
+    ],
+    stack: ["Odoo", "Python", "PostgreSQL", "Docker", "QWeb", "XML"],
   },
   {
     from: "Mar 2023",
@@ -17,8 +23,14 @@ const experience = [
     role: "Self-Taught Software Developer",
     company: "Independent Learning & Personal Projects",
     description:
-      "Studied programming through hands-on projects, mainly with Python. Explored Java fundamentals, built medium-level PHP web projects including a Facebook-style posting website, and created beginner Unity games using C#.",
-    stack: ["Python", "PHP", "Java", "C#", "Unity", "Web Development"],
+      "Started software development through self-directed learning across Python, PHP, databases, and web technologies. Built practical projects including a posting website with PHP and MySQL, explored Unity game development with C#, and gradually shifted toward backend engineering and ERP development.",
+    highlights: [
+      "Focused mainly on Python and backend fundamentals",
+      "Built a PHP and MySQL posting website",
+      "Learned Java fundamentals and introductory OOP concepts",
+      "Explored beginner Unity game development with C#",
+    ],
+    stack: ["Python", "PHP", "MySQL", "HTML", "CSS", "JavaScript", "Unity", "C#"],
   },
 ];
 ---
@@ -30,7 +42,7 @@ const experience = [
     </p>
 
     <h1 class="mt-4 font-display text-4xl font-bold tracking-[-0.04em] text-text sm:text-6xl">
-      Work history, ready for exact details.
+      Backend growth through real ERP work.
     </h1>
 
     <div class="mt-12 space-y-5">
@@ -70,6 +82,15 @@ const experience = [
             <p class="mt-3 text-sm leading-7 text-muted">
               {item.description}
             </p>
+
+            <ul class="mt-4 space-y-2">
+              {item.highlights.map((highlight) => (
+                <li class="flex gap-3 text-sm leading-6 text-muted">
+                  <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                  <span>{highlight}</span>
+                </li>
+              ))}
+            </ul>
 
             <div class="mt-4 flex flex-wrap gap-2">
               {item.stack.map((tag) => (
