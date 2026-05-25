@@ -4,28 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  color-scheme: light;
-  --bg: 248 246 255;
-  --bg-elevated: 255 255 255;
-  --card: 255 255 255;
-  --card-hover: 247 242 255;
-  --text: 18 13 31;
-  --muted: 91 81 112;
-  --border: 225 214 255;
-  --primary: 177 92 255;
-  --primary-hover: 150 65 235;
-  --primary-soft: 245 236 255;
-  --secondary: 54 214 255;
-  --secondary-hover: 18 178 230;
-  --secondary-soft: 226 249 255;
-  --shadow-soft: 0 24px 60px rgba(38, 18, 72, 0.12);
-  --shadow-glow: 0 0 0 1px rgba(177, 92, 255, 0.28), 0 22px 70px rgba(177, 92, 255, 0.2);
-  --font-display: "Space Grotesk", "IBM Plex Sans", sans-serif;
-  --font-body: "IBM Plex Sans", "Segoe UI", sans-serif;
-  --font-mono: "IBM Plex Mono", "Cascadia Code", monospace;
-} */
-
 :root {
   color-scheme: light;
 

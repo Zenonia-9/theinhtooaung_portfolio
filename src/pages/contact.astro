@@ -22,12 +22,12 @@ const contactCards = [
     href: "https://www.linkedin.com/in/thein-htoo-aung/",
     icon: "linkedin",
   },
-  {
-    title: "Telegram",
-    value: "@NoctivagusAeternus",
-    href: "https://t.me/NoctivagusAeternus",
-    icon: "telegram",
-  },
+  // {
+  //   title: "Telegram",
+  //   value: "@NoctivagusAeternus",
+  //   href: "https://t.me/NoctivagusAeternus",
+  //   icon: "telegram",
+  // },
   {
     title: "Discord",
     value: "theinhtooaung",
@@ -68,7 +68,7 @@ const contactCards = [
         const cardContent = (
           <>
             <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/30 bg-primary-soft font-mono text-sm font-semibold tracking-[0.2em] text-primary">
-              {["discord", "github", "linkedin", "telegram", "phone", "mail", "globe", "file-text"].includes(card.icon) ? (
+              {["discord", "github", "linkedin", "phone", "mail", "globe", "file-text"].includes(card.icon) ? (
                 <BrandIcon name={card.icon} />
               ) : (
                 card.icon

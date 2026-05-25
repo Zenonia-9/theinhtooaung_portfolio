@@ -38,3 +38,5 @@ pnpm-debug.log*
 
 *.zip
 .images/
+favicon/
+favicon-1.svg
