@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import ThemeToggle from "./ThemeToggle.jsx";
 
 export default function MobileMenu({ links, pathname }) {
   const [open, setOpen] = useState(false);
@@ -23,7 +22,7 @@ export default function MobileMenu({ links, pathname }) {
       <button
         aria-expanded={open}
         aria-label={open ? "Close navigation menu" : "Open navigation menu"}
-        className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-border bg-card/75 text-text shadow-soft backdrop-blur"
+        className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-border bg-card/75 text-text shadow-soft backdrop-blur"
         onClick={() => setOpen((value) => !value)}
         type="button"
       >
@@ -39,14 +38,6 @@ export default function MobileMenu({ links, pathname }) {
             initial={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.24, ease: "easeOut" }}
           >
-            <div className="mb-5 flex items-center justify-between rounded-2xl border border-border bg-card/70 px-4 py-3">
-              <div>
-                <p className="font-display text-lg font-bold text-text">Navigate</p>
-                <p className="text-sm text-muted">Portfolio routes and theme controls</p>
-              </div>
-              <ThemeToggle />
-            </div>
-
             <nav className="flex flex-col gap-2">
               {links.map((link) => {
                 const active =

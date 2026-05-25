@@ -61,6 +61,9 @@ const links = [
       <ThemeToggle client:load />
     </div>
 
-    <MobileMenu client:load links={links} pathname={pathname} />
+    <div class="flex items-center gap-3 lg:hidden">
+      <ThemeToggle client:load />
+      <MobileMenu client:load links={links} pathname={pathname} />
+    </div>
   </div>
 </header>
