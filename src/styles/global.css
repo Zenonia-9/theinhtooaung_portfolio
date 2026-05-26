@@ -58,7 +58,7 @@ html {
   background: rgb(var(--bg));
 }
 
-@media (min-width: 768px) and (pointer: fine) {
+@media (pointer: fine) {
   html,
   body,
   body *,

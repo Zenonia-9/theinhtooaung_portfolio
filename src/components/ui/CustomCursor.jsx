@@ -15,9 +15,9 @@ export default function CustomCursor() {
   });
 
   useEffect(() => {
-    // if (window.innerWidth < 768 || window.matchMedia("(pointer: coarse)").matches) {
-    //   return undefined;
-    // }
+    if (!window.matchMedia("(pointer: fine)").matches) {
+      return undefined;
+    }
 
     const selectors = "a, button, .cursor-hover, .project-card";
     let frameId = 0;
@@ -134,13 +134,13 @@ export default function CustomCursor() {
     <>
       <span
         aria-hidden="true"
-        className="pointer-events-none fixed left-0 top-0 z-[99999] hidden h-2 w-2 rounded-full bg-primary opacity-0 md:block"
+        className="pointer-events-none fixed left-0 top-0 z-[99999] h-2 w-2 rounded-full bg-primary opacity-0"
         ref={dotRef}
       />
 
       <span
         aria-hidden="true"
-        className="pointer-events-none fixed left-0 top-0 z-[99998] hidden h-8 w-8 opacity-0 md:block"
+        className="pointer-events-none fixed left-0 top-0 z-[99998] h-8 w-8 opacity-0"
         ref={ringRef}
       >
         <span
