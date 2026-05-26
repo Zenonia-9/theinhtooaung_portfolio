@@ -15,9 +15,9 @@ export default function CustomCursor() {
   });
 
   useEffect(() => {
-    if (window.innerWidth < 768 || window.matchMedia("(pointer: coarse)").matches) {
-      return undefined;
-    }
+    // if (window.innerWidth < 768 || window.matchMedia("(pointer: coarse)").matches) {
+    //   return undefined;
+    // }
 
     const selectors = "a, button, .cursor-hover, .project-card";
     let frameId = 0;
