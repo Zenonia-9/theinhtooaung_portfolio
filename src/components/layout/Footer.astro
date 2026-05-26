@@ -4,6 +4,14 @@ const socialLinks = [
   { href: "https://www.linkedin.com/in/thein-htoo-aung/", label: "LinkedIn" },
   { href: "https://discord.com/users/1152421433528561734", label: "Discord" },
 ];
+
+const hideDesignCreditHosts = new Set([
+  "localhost",
+  "127.0.0.1",
+  "theinhtooaung.vercel.app",
+]);
+
+const showDesignCredit = !hideDesignCreditHosts.has(Astro.url.hostname);
 ---
 
 <footer class="border-t border-border/70 bg-bg-elevated/92">
@@ -31,6 +39,7 @@ const socialLinks = [
           <a class="text-sm text-muted hover:text-primary" href="/contact">Contact</a>
         </div>
       </div>
+
       <div>
         <p class="font-mono text-xs uppercase tracking-[0.26em] text-primary">Elsewhere</p>
         <div class="mt-4 flex flex-col gap-3">
@@ -49,26 +58,26 @@ const socialLinks = [
     </div>
   </div>
 
-  <!-- 
-    IMPORTANT: This attribution section must remain intact if others use this design.
-    It provides proper credit to the original creator and links back to their site.
-  -->
   <div class="border-t border-border/70">
-    <div class="mx-auto flex max-w-[1400px] flex-col gap-4 px-4 py-6 text-sm text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+    <div class="mx-auto flex max-w-[1400px] flex-col gap-5 px-4 py-6 text-sm text-muted sm:px-6 lg:px-8">
       <div>
         <p>&copy; 2026 Thein Htoo Aung.</p>
         <p class="mt-1 text-xs opacity-80">Built with Astro.</p>
       </div>
-      
-      <div class="mt-4 sm:mt-0">
-        <div class="rounded-lg border border-primary/20 bg-primary/5 p-4">
-          <p class="font-medium text-primary">
-            <span class="font-mono text-xs uppercase tracking-wider">Design Credit</span>
+
+      {showDesignCredit && (
+        <aside
+          class="rounded-xl border border-primary/25 bg-primary/5 p-4"
+          aria-label="Design credit"
+        >
+          <p class="font-mono text-xs uppercase tracking-[0.22em] text-primary">
+            Design Credit
           </p>
-          <p class="mt-1 text-sm">
-            This portfolio design is based on the original work of 
-            <a 
-              href="https://theinhtooaung.vercel.app/" 
+
+          <p class="mt-2 text-sm leading-6">
+            This portfolio design is based on the original work of{" "}
+            <a
+              href="https://theinhtooaung.vercel.app/"
               class="font-semibold text-primary hover:underline"
               rel="noreferrer"
               target="_blank"
@@ -76,11 +85,12 @@ const socialLinks = [
               Thein Htoo Aung
             </a>.
           </p>
+
           <p class="mt-1 text-xs opacity-80">
-            Please maintain this attribution if you use this design.
+            Please keep this attribution if you use this design.
           </p>
-        </div>
-      </div>
+        </aside>
+      )}
     </div>
   </div>
 </footer>
